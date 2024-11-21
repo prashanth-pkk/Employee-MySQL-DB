@@ -1,4 +1,4 @@
-package com.mysql.emp.Employee.MySQL;
+package com.mysql.emp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.mysql.emp.Employee.MySQL;
+package com.mysql.emp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
