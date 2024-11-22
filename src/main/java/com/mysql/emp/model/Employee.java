@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import javax.xml.transform.Source;
+import java.time.LocalDate;
 
 
 @Entity
@@ -18,22 +19,39 @@ public class Employee implements Source {
     @Size(min = 2, message = "Name should be at least 2 characters")
     @Column(nullable = false)
     private String name;
-    @NotNull
+
     @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    @JoinColumn(name = "department_id", nullable = false)
     private String department;
+
+    @Column(nullable = false)
+    private String jobTitle;
+
     @NotNull
     @Min(value = 0, message = "Salary should be a positive number")
     @Column(nullable = false)
     private Double salary;
 
+    private LocalDate hireDate;
+    private String phoneNumber;
+
+    private boolean isActive;
+
     public Employee() {
     }
 
-    public Employee(long id, String name, String department, Double salary) {
-        this.id = id;
+    public Employee(String name, String email, String department, String jobTitle, Double salary, LocalDate hireDate, String phoneNumber, boolean isActive) {
         this.name = name;
+        this.email = email;
         this.department = department;
+        this.jobTitle = jobTitle;
         this.salary = salary;
+        this.hireDate = hireDate;
+        this.phoneNumber = phoneNumber;
+        this.isActive = isActive;
     }
 
     public long getId() {
@@ -52,6 +70,14 @@ public class Employee implements Source {
         this.name = name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getDepartment() {
         return department;
     }
@@ -60,12 +86,44 @@ public class Employee implements Source {
         this.department = department;
     }
 
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
     public Double getSalary() {
         return salary;
     }
 
     public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    public LocalDate getHireDate() {
+        return hireDate;
+    }
+
+    public void setHireDate(LocalDate hireDate) {
+        this.hireDate = hireDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 
     @Override
